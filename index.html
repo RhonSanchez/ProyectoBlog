@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css" />
+  <title>Juancito Blog</title>
+</head>
+
+<body>
+
+  <i class="icon-menu burger-button" id="burguer-menu"></i>
+  <header class="header">
+    <div class="container">
+      <h1>Juancito Blog</h1>
+      <nav class="menu">
+        <ol>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#aboutMe">Sobre Mí</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ol>
+      </nav>
+    </div>
+  </header>
+  <section id="blog" class="blogs">
+    <div class="container">
+      <h2>Blogs Destacados</h2>
+      <div id="blogs">
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menu = document.querySelector('.menu');
+    const ipad = window.matchMedia('screen and (max-width: 767px)');
+    const burguerButton = document.querySelector('#burguer-menu');
+
+    ipad.addListener(validation)
+
+    function validation(event) {
+      if (event.matches) {
+        burguerButton.addEventListener('click', hideShow);
+      }
+      else {
+        burguerButton.removeEventListener('click', hideShow);
+      }
+    }
+    validation(ipad);
+
+    function hideShow() {
+      if (menu.classList.contains('is-active')) {
+        menu.classList.remove('is-active');
+      }
+      else {
+        menu.classList.add('is-active');
+      }
+    }
+  </script>
+
+  <script type="module" src="./scripts/app.js"></script>
+</body>
+
+</html>
